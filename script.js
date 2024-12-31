@@ -2,14 +2,14 @@ let container = document.querySelector('.canvas-container');
 let canvas;
 let ctx;
 let lines;
-let count;
+let linesCount;
 
-function init(){
+function init() {
     setCanvas();
     resizeReset();
 }
 
-function setCanvas(){
+function setCanvas() {
     canvas = {
         a: document.createElement('canvas'),
         b: document.createElement('canvas'),
@@ -26,14 +26,31 @@ function resizeReset() {
     canvas.a.width = window.innerWidth;
     canvas.a.height = window.innerHeight;
 
-    ctx.a.drawImage(canvas.b, 0,0);
+    ctx.a.drawImage(canvas.b, 0, 0);
 
     canvas.b.width = window.innerWidth;
     canvas.b.height = window.innerHeight;
 
     ctx.b.drawImage(canvas.a, 0, 0);
 
-    
+    lines = [];
+    linesCount = 1;
+
+    for (let i = 0; i < linesCount; i++) {
+        lines.push(new lines());
+    }
+}
+
+class Line {
+    constructor() {
+
+    }
+    draw() {
+
+    }
+    update() {
+
+    }
 }
 
 window.addEventListener('DOMContentLoaded', init);
