@@ -4,6 +4,11 @@ let ctx;
 let lines;
 let linesCount;
 
+const minWidth = 10;
+const maxWidth = 30;
+const minHeight = 200;
+const maxHeight = 600;
+
 function init() {
     setCanvas();
     resizeReset();
