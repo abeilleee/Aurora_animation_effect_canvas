@@ -1,6 +1,8 @@
 let container = document.querySelector('.canvas-container');
 let canvas;
 let ctx;
+let lines;
+let count;
 
 function init(){
     setCanvas();
@@ -28,6 +30,10 @@ function resizeReset() {
 
     canvas.b.width = window.innerWidth;
     canvas.b.height = window.innerHeight;
+
+    ctx.b.drawImage(canvas.a, 0, 0);
+
+    
 }
 
 window.addEventListener('DOMContentLoaded', init);
