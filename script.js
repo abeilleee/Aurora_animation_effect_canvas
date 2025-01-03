@@ -46,9 +46,17 @@ function resizeReset() {
     }
 }
 
+function getRandomInt(min, max) {
+    return Math.round((Math.random() * (max - min)) + min);
+
+}
+
 class Line {
     constructor() {
-
+        this.x = getRandomInt(0, canvas.a.width);
+        this.y = getRandomInt(canvas.a.height / 2, canvas.a.height / 2);
+        this.width = getRandomInt(minWidth, maxWidth);
+        this.height = getRandomInt(minHeight, maxHeight);
     }
     draw() {
 
