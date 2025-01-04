@@ -59,7 +59,21 @@ class Line {
         this.height = getRandomInt(minHeight, maxHeight);
     }
     draw() {
+        let gradient;
+        gradient = ctx.a.createLinearGradient(this.x, this.y - this.height, this.x, this.y);
+        gradient.addColorStop(0, `hsla(120, 100%, 65%, 0)`);
+        gradient.addColorStop(0.5, `hsla(120, 100%, 65%, 1)`);
+        gradient.addColorStop(1, `hsla(120, 100%, 65%, 0)`);
 
+        ctx.a.save();
+        ctx.a.beginPath();
+        ctx.a.strokeStyle = gradient;
+        ctx.a.lineWidth = this.width;
+        ctx.a.moveTo(this.x, this.y - this.height);
+        ctx.a.lineTo(this.x, this.y);
+        ctx.a.Stroke();
+        ctx.a.closePath();
+        ctx.a.restore();
     }
     update() {
 
