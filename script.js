@@ -8,10 +8,12 @@ const minWidth = 10;
 const maxWidth = 30;
 const minHeight = 200;
 const maxHeight = 600;
+const backgroundColor = '#000000';
 
 function init() {
     setCanvas();
     resizeReset();
+    animationLoop();
 }
 
 function setCanvas() {
@@ -39,16 +41,28 @@ function resizeReset() {
     ctx.b.drawImage(canvas.a, 0, 0);
 
     lines = [];
-    linesCount = 1;
+    linesCount = 10;
 
     for (let i = 0; i < linesCount; i++) {
-        lines.push(new lines());
+        lines.push(new Line());
     }
+}
+
+function animationLoop() {
+    ctx.a.clearRect(0, 0, canvas.a.width, canvas.a.height);
+    ctx.b.fillStyle = backgroundColor;
+    ctx.b.fillRect(0, 0, canvas.b.width, canvas.b.height);
+
+    for (let i = 0; i < lines.length; i++) {
+        lines[i].draw();
+    }
+
+    ctx.b.drawImage(canvas.a, 0, 0);
+    requestAnimationFrame(animationLoop);
 }
 
 function getRandomInt(min, max) {
     return Math.round((Math.random() * (max - min)) + min);
-
 }
 
 class Line {
@@ -71,7 +85,7 @@ class Line {
         ctx.a.lineWidth = this.width;
         ctx.a.moveTo(this.x, this.y - this.height);
         ctx.a.lineTo(this.x, this.y);
-        ctx.a.Stroke();
+        ctx.a.stroke();
         ctx.a.closePath();
         ctx.a.restore();
     }
