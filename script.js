@@ -68,7 +68,7 @@ function getRandomInt(min, max) {
 class Line {
     constructor() {
         this.x = getRandomInt(0, canvas.a.width);
-        this.y = getRandomInt(canvas.a.height / 2, canvas.a.height / 2);
+        this.y = canvas.a.height / 2 + minHeight;
         this.width = getRandomInt(minWidth, maxWidth);
         this.height = getRandomInt(minHeight, maxHeight);
     }
