@@ -71,13 +71,14 @@ class Line {
         this.y = canvas.a.height / 2 + minHeight;
         this.width = getRandomInt(minWidth, maxWidth);
         this.height = getRandomInt(minHeight, maxHeight);
+        this.hue = getRandomInt(120, 180);
     }
     draw() {
         let gradient;
         gradient = ctx.a.createLinearGradient(this.x, this.y - this.height, this.x, this.y);
-        gradient.addColorStop(0, `hsla(120, 100%, 65%, 0)`);
-        gradient.addColorStop(0.5, `hsla(120, 100%, 65%, 1)`);
-        gradient.addColorStop(1, `hsla(120, 100%, 65%, 0)`);
+        gradient.addColorStop(0, `hsla(${this.hue}, 100%, 65%, 0)`);
+        gradient.addColorStop(0.5, `hsla(${this.hue}, 100%, 65%, 1)`);
+        gradient.addColorStop(1, `hsla(${this.hue}, 100%, 65%, 0)`);
 
         ctx.a.save();
         ctx.a.beginPath();
