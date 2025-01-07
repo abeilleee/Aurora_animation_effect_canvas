@@ -57,7 +57,11 @@ function animationLoop() {
         lines[i].draw();
     }
 
+    ctx.b.save();
+    ctx.b.filter = 'blur(13px)';
+    ctx.a.globalCompositeOperation = 'lighter';
     ctx.b.drawImage(canvas.a, 0, 0);
+    ctx.b.restore();
     requestAnimationFrame(animationLoop);
 }
 
