@@ -9,6 +9,8 @@ const maxWidth = 30;
 const minHeight = 200;
 const maxHeight = 600;
 const backgroundColor = '#000000';
+const minTTL = 100;
+const maxTTL = 300;
 
 function init() {
     setCanvas();
