@@ -78,6 +78,8 @@ class Line {
         this.width = getRandomInt(minWidth, maxWidth);
         this.height = getRandomInt(minHeight, maxHeight);
         this.hue = getRandomInt(120, 180);
+        this.ttl = getRandomInt(minTTL, maxTTL);
+        this.life = 0;
     }
     draw() {
         let gradient;
@@ -97,6 +99,12 @@ class Line {
         ctx.a.restore();
     }
     update() {
+        this.life++;
+        if (this.life > this.ttl){
+            this.life = 0;
+            this.x = getRandomInt(0, canvas.a.width);
+            this.width = getRandomInt(minWidth, maxWidth);
+        }
 
     }
 }
