@@ -72,6 +72,11 @@ function getRandomInt(min, max) {
     return Math.round((Math.random() * (max - min)) + min);
 }
 
+function fadeInOut(t, m) {
+    let hm = 0.6 * m;
+    return Math.abs((t + hm) % m - hm) / hm;
+}
+
 class Line {
     constructor() {
         this.x = getRandomInt(0, canvas.a.width);
@@ -101,7 +106,7 @@ class Line {
     }
     update() {
         this.life++;
-        if (this.life > this.ttl){
+        if (this.life > this.ttl) {
             this.life = 0;
             this.x = getRandomInt(0, canvas.a.width);
             this.width = getRandomInt(minWidth, maxWidth);
